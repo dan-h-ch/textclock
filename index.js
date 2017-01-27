@@ -1,6 +1,6 @@
 var getText = function() {
   // returns an array with time represented in text
-  var result = []
+  var result = ['it', 'is']
 
   dateTime = (new Date()).toString().split(' ')
   var [day, mon, date, year, time, gmt, tZone] = dateTime
@@ -29,7 +29,7 @@ var getText = function() {
     0: undefined,
     5: 'five',
     10: 'ten',
-    15: 'fifteen',
+    15: 'quarter',
     20: 'twenty',
     30: 'half'
   }
@@ -50,15 +50,37 @@ var getText = function() {
   }
 
   if (minText[min]) {
-    result.push(minText[min])
-    result.push('minutes')
+    if (min === 25) {
+      result.push(minText['20'])
+      result.push(minText['5'])
+    } else {
+      result.push(minText[min])
+    }
+    if (minText[min] !== 'quarter' && minText[min] !== 'half') {
+      result.push('minutes')
+    }
+    result.push(toPast)
   }
-  result.push(toPast)
   result.push(hourText[hour])
   result.push('oclock')
 
-  console.log(result)
   return result
 }
 
-getText()
+var styleText = function(arr) {
+  // remove selected class from all clock-text
+  $('.clock-text').removeClass('selected')
+
+  // add selected class to appropriate elements
+  arr.forEach(function(word) {
+    $('.'+word).addClass('selected')
+  })
+}
+
+var text = getText()
+styleText(text)
+
+setInterval(function() {
+  text = getText()
+  styleText(text)
+}, 60000)

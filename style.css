@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+}
+
+.container {
+  width: 600;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 60px;
+}
+
+.clock-text {
+  display: inline;
+  font-family: helvetica;
+  font-size: 64;
+  color: dimgray;
+  padding: 4px;
+}
+
+.selected {
+  color: white;
+}
