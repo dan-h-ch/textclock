@@ -14,7 +14,8 @@ body {
   display: inline;
   font-family: helvetica;
   font-size: 64;
-  color: dimgray;
+  color: #3B3A3A;
+/*  color: dimgray;*/
   padding: 4px;
 }
 
