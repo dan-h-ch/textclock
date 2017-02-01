@@ -53,6 +53,9 @@ var getText = function() {
     if (min === 25) {
       result.push(minText['20'])
       result.push(minText['5'])
+    } else if (min === 15) {
+      result.push('a')
+      result.push(minText[min])
     } else {
       result.push(minText[min])
     }
